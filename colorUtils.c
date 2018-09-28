@@ -60,7 +60,7 @@ int rgbToCMYK(int r, int g, int b, double *c, double *m, double *y, double *k) {
 	return 0;
 }
 
-int cmykToRGB(int *r, int *g, int *b, double c, double m, double y, double k) {
+int cmykToRGB(double c, double m, double y, double k, int *r, int *g, int *b) {
 	
 	if(c < 0 || c > 1) {
 		return 1;
@@ -80,6 +80,7 @@ int cmykToRGB(int *r, int *g, int *b, double c, double m, double y, double k) {
 		return 1;
 	}
 	
+	//If the rounding is still off, then it will round up
 	*r = round(255 * (1 - c) * (1 - k));
 	double rReal = 255 * (1 - c) * (1 - k);
 	if(fabs(*r - rReal) >= 0.5) {

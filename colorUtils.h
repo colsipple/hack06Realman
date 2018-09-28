@@ -15,7 +15,7 @@
 int rgbToCMYK(int r, int g, int b, double *c, double *m, double *y, double *k);
 
 //CMYK to RGB
-int cmykToRGB(int *r, int *g, int *b, double c, double m, double y, double k);
+int cmykToRGB(double c, double m, double y, double k, int *r, int *g, int *b);
 
 //RGB to grayscale for three different methods
 int toGrayScale(int *r, int *g, int *b, Mode m);
